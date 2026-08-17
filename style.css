@@ -1,0 +1,661 @@
+/* ============================================================
+   AM Reisen – Reisen & Flugziele
+   Professionelles Stylesheet
+   ============================================================ */
+
+/* ---------- CSS-Variablen ---------- */
+:root {
+    --primary: #0d2c4f;        /* Tiefes Navy */
+    --primary-dark: #081f38;
+    --accent: #ff7a1a;         /* Warmes Orange */
+    --accent-dark: #e56500;
+    --text: #1f2937;
+    --text-light: #5b6472;
+    --bg: #ffffff;
+    --bg-alt: #f5f7fa;
+    --white: #ffffff;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(13, 44, 79, 0.12);
+    --shadow-hover: 0 18px 45px rgba(13, 44, 79, 0.22);
+    --transition: all 0.3s ease;
+}
+
+/* ---------- Basis ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    line-height: 1.65;
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--white);
+    box-shadow: 0 8px 20px rgba(255, 122, 26, 0.35);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    background-color: var(--white);
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.btn-small {
+    padding: 9px 20px;
+    font-size: 0.9rem;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.btn-small:hover {
+    background-color: var(--accent);
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(13, 44, 79, 0.97);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--white);
+    padding: 3px;
+    object-fit: cover;
+}
+
+.brand-name {
+    color: var(--white);
+    font-size: 1.35rem;
+    letter-spacing: 0.5px;
+}
+
+.brand-name strong {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+}
+
+.main-nav a {
+    display: block;
+    padding: 10px 18px;
+    color: var(--white);
+    font-weight: 500;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.main-nav a:hover {
+    color: var(--accent);
+}
+
+.nav-cta {
+    background-color: var(--accent);
+    border-radius: 50px;
+    margin-left: 8px;
+}
+
+.nav-cta:hover {
+    background-color: var(--accent-dark);
+    color: var(--white) !important;
+}
+
+/* Hamburger (reines CSS) */
+.nav-toggle,
+.hamburger {
+    display: none;
+}
+
+.hamburger {
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    background: url("images/hero.jpg") center/cover no-repeat;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-overlay {
+    width: 100%;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(
+        100deg,
+        rgba(8, 31, 56, 0.85) 0%,
+        rgba(8, 31, 56, 0.55) 55%,
+        rgba(8, 31, 56, 0.25) 100%
+    );
+}
+
+.hero-content {
+    color: var(--white);
+    padding: 60px 0;
+}
+
+.hero-kicker {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero-text {
+    max-width: 560px;
+    font-size: 1.15rem;
+    color: #dbe4ef;
+    margin-bottom: 34px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* ---------- Trust-Leiste ---------- */
+.trust-bar {
+    background-color: var(--primary);
+    padding: 30px 0;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.trust-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.trust-label {
+    color: #c9d6e6;
+    font-size: 0.95rem;
+}
+
+/* ---------- Sections ---------- */
+.section {
+    padding: 90px 0;
+}
+
+.section-alt {
+    background-color: var(--bg-alt);
+}
+
+.section-kicker {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    max-width: 620px;
+    margin: 0 auto 50px;
+}
+
+/* ---------- Reiseziel-Karten ---------- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+}
+
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-body h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.card-body p {
+    color: var(--text-light);
+    font-size: 0.97rem;
+    flex: 1;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.price {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+/* ---------- Leistungen ---------- */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+}
+
+.feature {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 34px 26px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.feature:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.feature-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: rgba(255, 122, 26, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon svg {
+    width: 30px;
+    height: 30px;
+    color: var(--accent);
+}
+
+.feature h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.15rem;
+}
+
+.feature p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ---------- Über uns ---------- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text .section-kicker,
+.about-text .section-title {
+    text-align: left;
+}
+
+.about-text p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.check-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.check-list li {
+    padding: 7px 0 7px 34px;
+    position: relative;
+    color: var(--text);
+}
+
+.check-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 22px;
+    height: 22px;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image img {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ---------- Kontakt ---------- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 50px;
+}
+
+.contact-info {
+    background: var(--primary);
+    color: #dbe4ef;
+    padding: 40px 34px;
+    border-radius: var(--radius);
+    align-self: start;
+}
+
+.contact-info h3 {
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.contact-info p {
+    margin-bottom: 14px;
+}
+
+.contact-info a {
+    color: var(--accent);
+}
+
+.contact-form {
+    background: var(--white);
+    padding: 40px 34px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form label {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 13px 16px;
+    border: 1.5px solid #d7dde6;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+    margin-bottom: 8px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.15);
+}
+
+.contact-form .btn {
+    align-self: flex-start;
+    margin-top: 6px;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    background-color: var(--primary-dark);
+    color: #b9c7d9;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    padding: 60px 0 40px;
+}
+
+.footer-grid h4 {
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.footer-grid ul {
+    list-style: none;
+}
+
+.footer-grid li {
+    padding: 4px 0;
+}
+
+.footer-grid a:hover {
+    color: var(--accent);
+}
+
+.brand-footer {
+    margin-bottom: 14px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 18px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ============================================================
+   Responsive – Tablets (bis 900 px)
+   ============================================================ */
+@media (max-width: 900px) {
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .hero,
+    .hero-overlay {
+        min-height: 70vh;
+    }
+}
+
+/* ============================================================
+   Responsive – Smartphones (bis 600 px)
+   ============================================================ */
+@media (max-width: 600px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px 5%;
+        gap: 4px;
+    }
+
+    .main-nav a {
+        text-align: center;
+        padding: 13px;
+    }
+
+    .nav-cta {
+        margin: 6px 0 4px;
+    }
+
+    .nav-toggle:checked ~ .main-nav {
+        display: block;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        text-align: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        padding: 45px 0 30px;
+    }
+
+    .contact-form,
+    .contact-info {
+        padding: 28px 22px;
+    }
+}
